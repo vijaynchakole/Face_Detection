@@ -6,7 +6,8 @@ import numpy as np
 class FaceProcessing(object):
     def __init__(self):
         # self.file = "/home/opencv/mysite/haarcascade_frontalface_alt.xml"
-        self.file = "C:\\Users\\hp\\Desktop\\practicals_ml\\OpenCV\\Projects\\Project-07\\haarcascade_frontalface_alt.xml"
+        # self.file = "C:\\Users\\hp\\Desktop\\practicals_ml\\OpenCV\\Projects\\Project-07\\haarcascade_frontalface_alt.xml"
+        self.file = "haarcascade_frontalface_alt.xml"
         self.face_cascade = cv2.CascadeClassifier(self.file)
 
     def face_detection(self, image):
