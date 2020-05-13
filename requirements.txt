@@ -1,0 +1,7 @@
+flask
+opencv-contrib-python
+numpy
+os
+requests
+urllib
+werkzeug
