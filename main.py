@@ -30,9 +30,10 @@ def upload_form():
 def upload_image():
     file = request.files['file']
     filename=file.filename
-    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    IMAGE_PATH = (os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    
+    # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    file.save((app.config['UPLOAD_FOLDER'] + "/" + filename))
+    # IMAGE_PATH = (os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    IMAGE_PATH = (app.config['UPLOAD_FOLDER'] + "/" + filename)
     # resize image
     image = cv2.imread(IMAGE_PATH, cv2.IMREAD_UNCHANGED)
     
@@ -64,7 +65,7 @@ def upload_image():
     # img_path = "C:\\Users\\hp\\Desktop\\practicals_ml\\OpenCV\\Projects\\Project-07\\static\\uploads\\output_image.jpg"
     
     seperate = filename.split(".")
-    img_path = "C:\\Users\\hp\\Desktop\\practicals_ml\\OpenCV\\Projects\\Project-07\\static\\uploads\\output_" + seperate[0] + "." + seperate[1]
+    img_path = "static/uploads/output_" + seperate[0] + "." + seperate[1]
     status = cv2.imwrite(img_path, img_opencv)
     print(status)
     output = "output_" + seperate[0] + "." + seperate[1]
